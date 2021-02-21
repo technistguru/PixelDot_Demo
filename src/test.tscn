@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://addons/PixelDot/src/BlockMap.gd" type="Script" id=1]
+[ext_resource path="res://src/tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://src/TestGen.gd" type="Script" id=3]
+[ext_resource path="res://src/bgtileset.tres" type="TileSet" id=4]
+[ext_resource path="res://src/Camera.gd" type="Script" id=5]
+[ext_resource path="res://src/test.gd" type="Script" id=6]
+
+[node name="Test" type="Node2D"]
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+place_block = 5
+
+[node name="BlockMap" type="Node2D" parent="."]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+preview_camera = NodePath("../Camera")
+generator_script = ExtResource( 3 )
+block_size = Vector2( 32, 32 )
+lighting_layer = 1
+layers = [ ExtResource( 4 ), ExtResource( 2 ) ]
+block_properties = [ {
+"Emit": Color( 0, 0, 0, 1 ),
+"LightFalloff": 0.85,
+"Name": "Air",
+"Solid": false
+}, {
+"Emit": Color( 0, 0, 0, 1 ),
+"LightFalloff": 0.7,
+"Name": "Dirt",
+"Solid": true
+}, {
+"Emit": Color( 0, 0, 0, 1 ),
+"LightFalloff": 0.7,
+"Name": "Grass",
+"Solid": true
+}, {
+"Emit": Color( 0, 0, 0, 1 ),
+"LightFalloff": 0.7,
+"Name": "Stone",
+"Solid": true
+}, {
+"Emit": Color( 0, 0, 0, 1 ),
+"LightFalloff": 0.8,
+"Name": "Glass",
+"Solid": false
+}, {
+"Emit": Color( 1, 1, 1, 1 ),
+"LightFalloff": 0.7,
+"Name": "White",
+"Solid": true
+}, {
+"Emit": Color( 1, 0, 0, 1 ),
+"LightFalloff": 0.7,
+"Name": "Red",
+"Solid": true
+}, {
+"Emit": Color( 0, 1, 0, 1 ),
+"LightFalloff": 0.7,
+"Name": "Green",
+"Solid": true
+}, {
+"Emit": Color( 0, 0, 1, 1 ),
+"LightFalloff": 0.7,
+"Name": "Blue",
+"Solid": true
+}, {
+"Emit": Color( 0.772549, 0.356863, 0, 1 ),
+"LightFalloff": 0.7,
+"Name": "Lava",
+"Solid": true
+} ]
+
+[node name="Camera" type="Camera2D" parent="."]
+current = true
+script = ExtResource( 5 )
+
+[node name="TileMap" type="TileMap" parent="."]
+modulate = Color( 1, 1, 1, 0.588235 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
