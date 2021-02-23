@@ -1,6 +1,6 @@
 extends Node2D
 
-export var place_block := 1
+var place_block := 1
 
 onready var preview_tilemap := $TileMap
 
