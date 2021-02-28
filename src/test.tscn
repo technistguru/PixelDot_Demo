@@ -126,12 +126,16 @@ script = ExtResource( 4 )
 
 [node name="Water" type="Node2D" parent="BlockMap/MG_Layer"]
 script = ExtResource( 10 )
+UpdateFPS = 30.0
 BlockId = 10
+color = Color( 0, 0.647059, 1, 0.737255 )
+color2 = Color( 0, 0, 1, 0.823529 )
 
 [node name="Lava" type="Node2D" parent="BlockMap/MG_Layer"]
 script = ExtResource( 10 )
-UpdateFPS = 15.0
 BlockId = 9
+color = Color( 1, 0.376471, 0, 1 )
+color2 = Color( 1, 0, 0, 1 )
 FlowSpeed = 0.5
 
 [node name="CPU-BlockLighting" type="Sprite" parent="BlockMap"]
@@ -141,8 +145,8 @@ scale = Vector2( 5120, 3072 )
 texture = ExtResource( 9 )
 centered = false
 script = ExtResource( 7 )
-Light_Threshold = 0.03
 lighting_layers = PoolIntArray( 1 )
+Light_Threshold = 0.03
 
 [node name="Camera" type="Camera2D" parent="."]
 current = true
